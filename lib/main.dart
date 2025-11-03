@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 
 void main() {
+    runApp(const App());
+
   //runApp(const MyApp()); for the first commint I have comment out these line.
 }
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 
 //class MyApp extends StatelessWidget {
   //const MyApp({super.key});
