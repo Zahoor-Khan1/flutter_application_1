@@ -22,7 +22,8 @@ body: Align(
     width:400,
     height: 600,
     color: Colors.blue,
-    child: const Column(
+    child: const SingleChildScrollView(
+      child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -51,6 +52,7 @@ body: Align(
     ),
   ),
 ),
+      ),
       ),
    );
   }
