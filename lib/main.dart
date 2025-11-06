@@ -16,19 +16,37 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text('Sandwich Counter')),
 body: Align(
-  alignment: Alignment.topLeft,
+  alignment: Alignment.center,
 
   child: Container(
-    width:800,
-    height: 40,
+    width:400,
+    height: 600,
     color: Colors.blue,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    child: const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         OrderItemDisplay(2, 'Footlong'),
         OrderItemDisplay(4, 'Sub'),
         OrderItemDisplay(1, 'Mini'),
+        OrderItemDisplay(3, 'Veg'),
+        OrderItemDisplay(2, 'Ham'),
+        OrderItemDisplay(4, 'Sub'),
+        OrderItemDisplay(1, 'Mini'),
+        OrderItemDisplay(3, 'Veg'),
+        OrderItemDisplay(2, 'Beef'),
+        OrderItemDisplay(4, 'Sub'),
+        OrderItemDisplay(1, 'Veg'),
+        OrderItemDisplay(3, 'Veg'),
+        OrderItemDisplay(2, 'Smash'),
+        OrderItemDisplay(4, 'Sub'),
+        OrderItemDisplay(1, 'Ham'),
+        OrderItemDisplay(3, 'Veg'),
+        OrderItemDisplay(2, 'Chicken'),
+        OrderItemDisplay(4, 'BBQ'),
+        OrderItemDisplay(1, 'Ham'),
+        OrderItemDisplay(3, 'Veg'),
+
       ],
     ),
   ),
