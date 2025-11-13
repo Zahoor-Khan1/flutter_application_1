@@ -29,6 +29,7 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
+  String _note ='';
   void _increaseQuantity() {
   if (_quantity < widget.maxQuantity) {
     setState(() => _quantity++);
@@ -38,6 +39,7 @@ class _OrderScreenState extends State<OrderScreen> {
 void _decreaseQuantity() {
   if (_quantity > 0) {
     setState(() => _quantity--);
+
   }
 }
   @override
@@ -64,9 +66,29 @@ void _decreaseQuantity() {
 ElevatedButton(
   onPressed: _decreaseQuantity,
   child: const Text('Remove'),
+  
 ),
+const SizedBox(height: 20),
               ],
             ),
+const SizedBox(height: 20),
+Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+  child: TextField(
+    decoration: const InputDecoration(
+      labelText: 'Add a note',
+      border: OutlineInputBorder(),
+    ),
+    onChanged: (value) {
+      setState(() {
+        _note = value;
+      });
+    },
+  ),
+),
+const SizedBox(height: 10),
+Text('Note: $_note'),
+
           ],
         ),
       ),
