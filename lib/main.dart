@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:sandwich_shop/views/app_styles.dart';
+import 'package:sandwich_shop/repositories/order_repository.dart';
 void main() {
   runApp(const App());
 }
@@ -19,7 +20,7 @@ class App extends StatelessWidget {
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;
 
-  const OrderScreen({super.key, this.maxQuantity = 5});
+  const OrderScreen({super.key, this.maxQuantity = 10});
 
   @override
   State<OrderScreen> createState() {
@@ -29,8 +30,7 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
-  String _note = '';
-  String _sandwichType = 'Footlong';
+
   void _increaseQuantity() {
     if (_quantity < widget.maxQuantity) {
       setState(() => _quantity++);
@@ -55,66 +55,21 @@ class _OrderScreenState extends State<OrderScreen> {
           children: <Widget>[
             OrderItemDisplay(
               _quantity,
-              _sandwichType,
+              'Footlong',
             ),
-            SegmentedButton<String>(      
-  segments: const [
-    ButtonSegment(value: 'Footlong', label: Text('Footlong')),
-    ButtonSegment(value: 'Six-inch', label: Text('Six-inch')),
-  ],
-  selected: {_sandwichType},
-  onSelectionChanged: (value) {
-    setState(() {
-      _sandwichType = value.first;
-    });
-  },
-),
-const SizedBox(height: 20),            
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-onPressed: _quantity < widget.maxQuantity ? _increaseQuantity : null,
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.green,   
-    foregroundColor: Colors.white,   
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-  ),
-  child: const Text('Add'),
-),
-SizedBox(width: 10), 
-ElevatedButton(
-onPressed: _quantity > 0 ? _decreaseQuantity : null,
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.red,
-    foregroundColor: Colors.white,
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-  ),
-  child: const Text('Remove'),
-),
-
+                  onPressed: _increaseQuantity,
+                  child: const Text('Add'),
+                ),
+                ElevatedButton(
+                  onPressed: _decreaseQuantity,
+                  child: const Text('Remove'),
+                ),
               ],
             ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: TextField(
-                decoration: const InputDecoration(
-                  labelText: 'Add a note',
-                  border: OutlineInputBorder(),
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    _note = value;
-                  });
-                },
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text('Note: $_note'),
           ],
         ),
       ),
