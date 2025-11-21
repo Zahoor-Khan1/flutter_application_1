@@ -19,7 +19,7 @@ class App extends StatelessWidget {
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;
 
-  const OrderScreen({super.key, this.maxQuantity = 10});
+  const OrderScreen({super.key, this.maxQuantity = 5});
 
   @override
   State<OrderScreen> createState() {
@@ -57,7 +57,7 @@ class _OrderScreenState extends State<OrderScreen> {
               _quantity,
               _sandwichType,
             ),
-            SegmentedButton<String>(         // 🔵 ADD THIS
+            SegmentedButton<String>(      
   segments: const [
     ButtonSegment(value: 'Footlong', label: Text('Footlong')),
     ButtonSegment(value: 'Six-inch', label: Text('Six-inch')),
@@ -69,7 +69,7 @@ class _OrderScreenState extends State<OrderScreen> {
     });
   },
 ),
-const SizedBox(height: 20),            // optional spacing
+const SizedBox(height: 20),            
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,14 +77,14 @@ const SizedBox(height: 20),            // optional spacing
                 ElevatedButton(
 onPressed: _quantity < widget.maxQuantity ? _increaseQuantity : null,
   style: ElevatedButton.styleFrom(
-    backgroundColor: Colors.green,   // background colour
-    foregroundColor: Colors.white,   // text colour
+    backgroundColor: Colors.green,   
+    foregroundColor: Colors.white,   
     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
   ),
   child: const Text('Add'),
 ),
-SizedBox(width: 10), // space between buttons
+SizedBox(width: 10), 
 ElevatedButton(
 onPressed: _quantity > 0 ? _decreaseQuantity : null,
   style: ElevatedButton.styleFrom(
