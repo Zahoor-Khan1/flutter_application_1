@@ -129,23 +129,29 @@ class _OrderScreenState extends State<OrderScreen> {
                   value: _isFootlong,
                   onChanged: _onSandwichTypeChanged,
                 ),
+                Switch(
+                  key: Key('toasted_switch'),
+                  value: _isToasted,
+                  onChanged: (value) {
+                    setState(() => _isToasted = value);
+                  },
+                ),
                 const Text('footlong', style: normalText),
               ],
             ),
             Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    const Text('untoasted', style: normalText),
-    Switch(
-      value: _isToasted,
-      onChanged: (value) {
-        setState(() => _isToasted = value);
-      },
-    ),
-    const Text('toasted', style: normalText),
-  ],
-),
-
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('untoasted', style: normalText),
+                Switch(
+                  value: _isToasted,
+                  onChanged: (value) {
+                    setState(() => _isToasted = value);
+                  },
+                ),
+                const Text('toasted', style: normalText),
+              ],
+            ),
             const SizedBox(height: 10),
             DropdownMenu<BreadType>(
               textStyle: normalText,
@@ -189,6 +195,7 @@ class _OrderScreenState extends State<OrderScreen> {
     );
   }
 }
+
 class StyledButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final IconData icon;
@@ -224,8 +231,6 @@ class StyledButton extends StatelessWidget {
     );
   }
 }
-
-
 
 class OrderItemDisplay extends StatelessWidget {
   final int quantity;
