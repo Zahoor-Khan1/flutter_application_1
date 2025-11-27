@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sandwich_shop/view/app_styles.dart';
 import 'package:sandwich_shop/repositories/order_repository.dart';
+import 'repositories/pricing_repository.dart';
 
 enum BreadType { white, wheat, wholemeal }
 
@@ -34,6 +35,8 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   late final OrderRepository _orderRepository;
   final TextEditingController _notesController = TextEditingController();
+  final PricingRepository _pricingRepository = PricingRepository();
+
   bool _isFootlong = true;
   bool _isToasted = false;
   BreadType _selectedBreadType = BreadType.white;
@@ -95,6 +98,10 @@ class _OrderScreenState extends State<OrderScreen> {
     if (!_isFootlong) {
       sandwichType = 'six-inch';
     }
+    final totalPrice = _pricingRepository.calculateTotal(
+      quantity: _orderRepository.quantity,
+      isFootlong: _isFootlong,
+    );
 
     String noteForDisplay;
     if (_notesController.text.isEmpty) {
@@ -120,6 +127,11 @@ class _OrderScreenState extends State<OrderScreen> {
               breadType: _selectedBreadType,
               orderNote: noteForDisplay,
             ),
+            Text(
+              'Total Price: £$totalPrice',
+              style: normalText,
+            ),
+            const SizedBox(height: 20),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -128,13 +140,6 @@ class _OrderScreenState extends State<OrderScreen> {
                 Switch(
                   value: _isFootlong,
                   onChanged: _onSandwichTypeChanged,
-                ),
-                Switch(
-                  key: Key('toasted_switch'),
-                  value: _isToasted,
-                  onChanged: (value) {
-                    setState(() => _isToasted = value);
-                  },
                 ),
                 const Text('footlong', style: normalText),
               ],

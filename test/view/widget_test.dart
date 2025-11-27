@@ -187,7 +187,7 @@ void main() {
       expect(find.textContaining('six-inch'), findsOneWidget);
 
       // Tap again to toggle back
-      await tester.tap(find.byType(Switch));
+      await tester.tap(sizeSwitch);
       await tester.pumpAndSettle();
 
       // Should return to "footlong"
