@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sandwich_shop/views/app_styles.dart';
-import 'repositories/pricing_repository.dart';
+import 'package:sandwich_shop/models/sandwich.dart';
+import 'package:sandwich_shop/models/cart.dart';
+
 
 enum BreadType { white, wheat, wholemeal }
 
@@ -111,9 +113,19 @@ class _OrderScreenState extends State<OrderScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Sandwich Counter',
-          style: heading1,
+        title: Row(
+          children: [
+            SizedBox(
+              width: 40, // Adjust width for logo size
+              height: 40, // Adjust height for logo size
+              child: Image.asset('assets/images/logo.png'), 
+            ),
+            const SizedBox(width: 10),
+            const Text(
+              'Sandwich Counter',
+              style: heading1,
+            ),
+          ],
         ),
       ),
       body: Center(
