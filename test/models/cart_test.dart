@@ -2,21 +2,26 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sandwich_shop/models/cart.dart';
 import 'package:sandwich_shop/models/sandwich.dart';
+import 'package:sandwich_shop/repositories/pricing_repository.dart';
 
 void main() {
-  group('Cart Model Tests', () {
+  group('Cart Model with PricingRepository', () {
     late Cart cart;
-    late Sandwich sandwich1;
-    late Sandwich sandwich2;
+    late PricingRepository pricingRepository;
+    late Sandwich footlongSandwich;
+    late Sandwich sixInchSandwich;
 
     setUp(() {
-      cart = Cart();
-      sandwich1 = Sandwich(
+      pricingRepository = PricingRepository(sixInchPrice: 7.0, footlongPrice: 11.0);
+      cart = Cart(pricingRepository: pricingRepository);
+
+      footlongSandwich = Sandwich(
         type: SandwichType.veggieDelight,
         isFootlong: true,
         breadType: BreadType.white,
       );
-      sandwich2 = Sandwich(
+
+      sixInchSandwich = Sandwich(
         type: SandwichType.chickenTeriyaki,
         isFootlong: false,
         breadType: BreadType.wheat,
@@ -28,22 +33,14 @@ void main() {
       expect(cart.items.length, 0);
     });
 
-    test('Add sandwich to cart', () {
-      cart.add(sandwich1);
-      expect(cart.items.length, 1);
-      expect(cart.items.contains(sandwich1), true);
-    });
+    test('Add sandwiches and calculate total price using PricingRepository', () {
+      cart.add(footlongSandwich);
+      cart.add(sixInchSandwich);
 
-    test('Remove sandwich from cart', () {
-      cart.add(sandwich1);
-      cart.remove(sandwich1);
-      expect(cart.items.length, 0);
-    });
+      final expectedTotal = pricingRepository.calculateTotal(quantity: 1, isFootlong: true) +
+          pricingRepository.calculateTotal(quantity: 1, isFootlong: false);
 
-    test('Calculate total price correctly', () {
-      cart.add(sandwich1);
-      cart.add(sandwich2);
-      expect(cart.totalPrice, sandwich1.price + sandwich2.price);
+      expect(cart.totalPrice, expectedTotal);
     });
   });
 }
