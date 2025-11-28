@@ -70,7 +70,7 @@ void _addToCart() {
     String confirmationMessage =
         'Added $_quantity $sizeText ${sandwich.name} sandwich(es) on ${_selectedBreadType.name} bread';
 
-    // ✅ SHOW MESSAGE IN THE UI USING SNACKBAR
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(confirmationMessage),
