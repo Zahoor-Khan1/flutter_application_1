@@ -1,10 +1,9 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sandwich_shop/models/sandwich.dart';
 
 void main() {
   group('Sandwich Model Tests', () {
-    test('name getter returns correct sandwich name', () {
+    test('Correct name for Veggie Delight', () {
       final sandwich = Sandwich(
         type: SandwichType.veggieDelight,
         isFootlong: true,
@@ -14,24 +13,60 @@ void main() {
       expect(sandwich.name, 'Veggie Delight');
     });
 
-    test('image getter returns correct image path for footlong', () {
+    test('Correct name for Chicken Teriyaki', () {
       final sandwich = Sandwich(
         type: SandwichType.chickenTeriyaki,
+        isFootlong: false,
+        breadType: BreadType.white,
+      );
+
+      expect(sandwich.name, 'Chicken Teriyaki');
+    });
+
+    test('Correct name for Tuna Melt', () {
+      final sandwich = Sandwich(
+        type: SandwichType.tunaMelt,
         isFootlong: true,
         breadType: BreadType.wheat,
       );
 
-      expect(sandwich.image, 'assets/images/chickenTeriyaki_footlong.png');
+      expect(sandwich.name, 'Tuna Melt');
     });
 
-    test('image getter returns correct image path for six-inch', () {
+    test('Correct name for Meatball Marinara', () {
       final sandwich = Sandwich(
-        type: SandwichType.tunaMelt,
+        type: SandwichType.meatballMarinara,
         isFootlong: false,
         breadType: BreadType.wholemeal,
       );
 
-      expect(sandwich.image, 'assets/images/tunaMelt_six_inch.png');
+      expect(sandwich.name, 'Meatball Marinara');
+    });
+
+    test('Correct image path for footlong sandwich', () {
+      final sandwich = Sandwich(
+        type: SandwichType.veggieDelight,
+        isFootlong: true,
+        breadType: BreadType.white,
+      );
+
+      expect(
+        sandwich.image,
+        'assets/images/veggieDelight_footlong.png',
+      );
+    });
+
+    test('Correct image path for six-inch sandwich', () {
+      final sandwich = Sandwich(
+        type: SandwichType.veggieDelight,
+        isFootlong: false,
+        breadType: BreadType.white,
+      );
+
+      expect(
+        sandwich.image,
+        'assets/images/veggieDelight_six_inch.png',
+      );
     });
   });
 }

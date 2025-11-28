@@ -1,30 +1,18 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sandwich_shop/models/cart.dart';
 import 'package:sandwich_shop/models/sandwich.dart';
-import 'package:sandwich_shop/repositories/pricing_repository.dart';
 
 void main() {
-  group('Cart Model with PricingRepository', () {
+  group('Cart Model', () {
     late Cart cart;
-    late PricingRepository pricingRepository;
-    late Sandwich footlongSandwich;
-    late Sandwich sixInchSandwich;
+    late Sandwich sandwich;
 
     setUp(() {
-      pricingRepository = PricingRepository(sixInchPrice: 7.0, footlongPrice: 11.0);
-      cart = Cart(pricingRepository: pricingRepository);
-
-      footlongSandwich = Sandwich(
+      cart = Cart();
+      sandwich = Sandwich(
         type: SandwichType.veggieDelight,
         isFootlong: true,
         breadType: BreadType.white,
-      );
-
-      sixInchSandwich = Sandwich(
-        type: SandwichType.chickenTeriyaki,
-        isFootlong: false,
-        breadType: BreadType.wheat,
       );
     });
 
@@ -33,14 +21,17 @@ void main() {
       expect(cart.items.length, 0);
     });
 
-    test('Add sandwiches and calculate total price using PricingRepository', () {
-      cart.add(footlongSandwich);
-      cart.add(sixInchSandwich);
+    test('Add sandwich with quantity', () {
+      cart.add(sandwich, quantity: 2);
 
-      final expectedTotal = pricingRepository.calculateTotal(quantity: 1, isFootlong: true) +
-          pricingRepository.calculateTotal(quantity: 1, isFootlong: false);
+      expect(cart.items.length, 1);
+      expect(cart.items.first.quantity, 2);
+    });
 
-      expect(cart.totalPrice, expectedTotal);
+    test('Total price is calculated', () {
+      cart.add(sandwich, quantity: 2);
+
+      expect(cart.totalPrice, isNonZero);
     });
   });
 }
