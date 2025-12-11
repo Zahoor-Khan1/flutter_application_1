@@ -23,6 +23,10 @@ class Cart {
     _items.add(CartItem(sandwich: sandwich, quantity: quantity));
   }
 
+  void clear() {
+    _items.clear();
+  }
+
   double get totalPrice {
     double total = 0;
     for (var item in _items) {
