@@ -37,4 +37,20 @@ TextField(
   },
 ),
 const SizedBox(height: 30),
-
+ElevatedButton(
+  onPressed: () {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Profile Saved!"),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  },
+  child: const Text("Save"),
+),
+          ],
+        ),
+      ),
+    );
+  }
+}
