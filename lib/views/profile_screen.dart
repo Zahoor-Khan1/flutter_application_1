@@ -22,4 +22,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+          children: [TextField(
+  decoration: const InputDecoration(labelText: "Name"),
+  onChanged: (value) {
+    setState(() => name = value);
+  },
+),
+const SizedBox(height: 20),
+
