@@ -15,7 +15,6 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Cart View", style: heading1),
@@ -27,12 +26,12 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: cart.items.length,
+                itemCount: widget.cart.items.length,
                 itemBuilder: (context, index) {
-                  final item = cart.items[index];
+                  final item = widget.cart.items[index];
 
-                  // FIXED: Calculate item price safely
-                  final itemTotal = cart.pricingRepository.calculateTotal(
+                  final itemTotal =
+                      widget.cart.pricingRepository.calculateTotal(
                     quantity: item.quantity,
                     isFootlong: item.sandwich.isFootlong,
                   );
@@ -62,9 +61,10 @@ class _CartScreenState extends State<CartScreen> {
 
             // ------- TOTAL DISPLAY ---------
             Text(
-              "Total: £${cart.totalPrice.toStringAsFixed(2)}",
-              style: heading1,
-            ),
+  "Total: £${widget.cart.totalPrice.toStringAsFixed(2)}",
+  style: heading1,
+),
+
 
             const SizedBox(height: 20),
 
