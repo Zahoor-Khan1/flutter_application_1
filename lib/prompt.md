@@ -43,3 +43,36 @@ Users should be able to:
 3. Format the output as Markdown.
 
 After this prompt is finalised, I will ask AI to generate the requirements file.
+
+
+# Prompt for AI — New Profile Screen Feature
+
+I am building a Flutter sandwich shop application. I need to add a new screen where the user can view or enter personal profile details.
+
+## App Context
+The app currently includes:
+- OrderScreen
+- CartScreen
+- CheckoutScreen
+- Cart model
+- Sandwich model
+
+## Profile Screen Requirements
+1. A title at the top saying "Profile".
+2. Two TextFields:
+   - One for the user name.
+   - One for the user email.
+3. A Save button (UI only; no backend required).
+4. Data typed into the fields should update internal state.
+5. A back button should navigate back to the previous screen.
+
+## Tasks for AI
+Please generate:
+1. A requirements document for this feature.
+2. User stories and acceptance criteria.
+3. Flutter UI code for the ProfileScreen using a StatefulWidget.
+4. One widget test verifying:
+   - The screen loads correctly.
+   - The text fields can accept input.
+
+The output will be saved as requirements.md.
