@@ -30,3 +30,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 ),
 const SizedBox(height: 20),
 
+TextField(
+  decoration: const InputDecoration(labelText: "Email"),
+  onChanged: (value) {
+    setState(() => email = value);
+  },
+),
+const SizedBox(height: 30),
+
