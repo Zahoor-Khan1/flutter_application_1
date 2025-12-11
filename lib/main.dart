@@ -292,6 +292,19 @@ class _OrderScreenState extends State<OrderScreen> {
                 label: 'View Cart',
                 backgroundColor: Colors.blue,
               ),
+              StyledButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
+                    ),
+                  );
+                },
+                icon: Icons.person,
+                label: 'Profile',
+                backgroundColor: Colors.blueAccent,
+              ),
               const SizedBox(height: 20),
             ],
           ),
