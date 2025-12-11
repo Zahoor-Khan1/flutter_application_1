@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sandwich_shop/views/app_styles.dart';
 import 'package:sandwich_shop/models/sandwich.dart';
 import 'package:sandwich_shop/models/cart.dart';
+import 'package:sandwich_shop/views/cart_screen.dart';
 
 void main() {
   runApp(const App());
@@ -53,33 +54,31 @@ class _OrderScreenState extends State<OrderScreen> {
     super.dispose();
   }
 
-void _addToCart() {
-  if (_quantity > 0) {
-    final Sandwich sandwich = Sandwich(
-      type: _selectedSandwichType,
-      isFootlong: _isFootlong,
-      breadType: _selectedBreadType,
-    );
+  void _addToCart() {
+    if (_quantity > 0) {
+      final Sandwich sandwich = Sandwich(
+        type: _selectedSandwichType,
+        isFootlong: _isFootlong,
+        breadType: _selectedBreadType,
+      );
 
-    setState(() {
-      _cart.add(sandwich, quantity: _quantity);
-    });
+      setState(() {
+        _cart.add(sandwich, quantity: _quantity);
+      });
 
-    String sizeText = _isFootlong ? 'footlong' : 'six-inch';
+      String sizeText = _isFootlong ? 'footlong' : 'six-inch';
 
-    String confirmationMessage =
-        'Added $_quantity $sizeText ${sandwich.name} sandwich(es) on ${_selectedBreadType.name} bread';
+      String confirmationMessage =
+          'Added $_quantity $sizeText ${sandwich.name} sandwich(es) on ${_selectedBreadType.name} bread';
 
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(confirmationMessage),
-        duration: const Duration(seconds: 10),
-      ),
-    );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(confirmationMessage),
+          duration: const Duration(seconds: 10),
+        ),
+      );
+    }
   }
-}
-
 
   VoidCallback? _getAddToCartCallback() {
     if (_quantity > 0) {
@@ -190,7 +189,7 @@ void _addToCart() {
               Center(
                 child: Image.asset(
                   _getCurrentImagePath(),
-                  height: 300, 
+                  height: 300,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     return const Center(
@@ -238,46 +237,59 @@ void _addToCart() {
                 children: [
                   const Text('Quantity: ', style: normalText),
                   IconButton(
+                    key: const Key('decrease_button'), // ✅ ADD THIS
                     onPressed: _getDecreaseCallback(),
                     icon: const Icon(Icons.remove),
                   ),
                   Text('$_quantity', style: heading2),
                   IconButton(
+                    key: const Key('increase_button'),
                     onPressed: _increaseQuantity,
                     icon: const Icon(Icons.add),
                   ),
                 ],
               ),
-const SizedBox(height: 20),
-
-Container(
-  margin: const EdgeInsets.symmetric(horizontal: 16),
-  padding: const EdgeInsets.all(12),
-  decoration: BoxDecoration(
-    color: Colors.grey.shade200,
-    borderRadius: BorderRadius.circular(12),
-  ),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        'Items: ${_cart.totalItems}',
-        style: heading2,
-      ),
-      Text(
-        'Total: £${_cart.totalPrice.toStringAsFixed(2)}',
-        style: heading2,
-      ),
-    ],
-  ),
-),
-
-const SizedBox(height: 20),
+              const SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Items: ${_cart.totalItems}',
+                      style: heading2,
+                    ),
+                    Text(
+                      'Total: £${_cart.totalPrice.toStringAsFixed(2)}',
+                      style: heading2,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
               StyledButton(
                 onPressed: _getAddToCartCallback(),
                 icon: Icons.add_shopping_cart,
                 label: 'Add to Cart',
                 backgroundColor: Colors.green,
+              ),
+              StyledButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(cart: _cart),
+                    ),
+                  );
+                },
+                icon: Icons.shopping_bag,
+                label: 'View Cart',
+                backgroundColor: Colors.blue,
               ),
               const SizedBox(height: 20),
             ],
