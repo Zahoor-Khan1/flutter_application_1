@@ -31,7 +31,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final Map orderConfirmation = {
       'orderId': orderId,
       'totalAmount': widget.cart.totalPrice,
-      'itemCount': widget.cart.countOfItems,
+      'itemCount': widget.cart.totalItems,
       'estimatedTime': '15-20 minutes',
     };
 
@@ -44,7 +44,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   double _calculateItemPrice(Sandwich sandwich, int quantity) {
     PricingRepository repo = PricingRepository();
-    return repo.calculatePrice(
+    return repo.calculateTotal(
         quantity: quantity, isFootlong: sandwich.isFootlong);
   }
 
@@ -55,9 +55,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     columnChildren.add(const Text('Order Summary', style: heading2));
     columnChildren.add(const SizedBox(height: 20));
 
-    for (MapEntry<Sandwich, int> entry in widget.cart.items.entries) {
-      final Sandwich sandwich = entry.key;
-      final int quantity = entry.value;
+    for (CartItem item in widget.cart.items) {
+      final Sandwich sandwich = item.sandwich;
+      final int quantity = item.quantity;
+
       final double itemPrice = _calculateItemPrice(sandwich, quantity);
 
       final Widget itemRow = Row(
