@@ -9,6 +9,8 @@ class CartItem {
     required this.sandwich,
     required this.quantity,
   });
+
+  get totalPrice => null;
 }
 
 class Cart {
