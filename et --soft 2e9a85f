@@ -1,0 +1,83 @@
+[33ma7242a8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mworksheet-6[m[33m)[m Use common AppBar in ProfileScreen
+[33m085bcb4[m Use common AppBar in CartScreen
+[33m6c8d0b9[m Replace OrderScreen AppBar with common AppBar including logo
+[33mb386e3f[m Enhance common AppBar to support optional logo
+[33m2e9a85f[m Add common AppBar widget to reduce duplication
+[33m5808af9[m Attach navigation drawer to ProfileScreen
+[33m3021fa5[m Attach navigation drawer to CartScreen
+[33mb967404[m Enable navigation to ProfileScreen from drawer
+[33me792734[m Enable navigation to CartScreen from drawer
+[33m3a89f8f[m Enable navigation to OrderScreen from drawer
+[33m8f0ff7a[m Attach navigation drawer to OrderScreen
+[33m13b14e1[m Add Profile item to navigation drawer
+[33m8d555d9[m Add Cart item to navigation drawer
+[33m08d6d88[m Add Order item to navigation drawer
+[33mac275b1[m Add DrawerHeader to AppDrawer
+[33mfe0fea3[m Create AppDrawer widget scaffold
+[33mb45bd5e[m Fix PricingRepository method name and replace invalid entries loop with List<CartItem> iteration
+[33m621cae3[m Add navigation button to open ProfileScreen from OrderScreen
+[33mf9f3f5f[m Import ProfileScreen into main.dart
+[33m259f30e[m Add Save button and complete ProfileScreen UI
+[33m7f2c357[m "Add Email TextField to ProfileScreen
+[33mce98e27[m Add Name TextField to ProfileScreen
+[33m960e9c2[m Add state variables and basic ProfileScreen layout
+[33m4cdce71[m Create ProfileScreen StatefulWidget structure
+[33m0aec653[m Add requirements for Profile Screen feature
+[33m6c865d6[m Add prompt for Profile Screen feature
+[33m8bd5536[m added clear method to cart
+[33m3b9ed39[m Add Checkout button to CartScreen UI
+[33ma7b47d0[m Update CartScreen to use widget.cart inside state
+[33mc63a5e3[m Refactor CartScreen to StatefulWidget
+[33m13653c6[m Changed stateless to statefull
+[33mcbd2449[m import the checkout_screen to cart_screen
+[33mc692c58[m created the checkout screen andadded the code for the checkout screen
+[33m6431cca[m Created the requirement.md file and added the requirement I got form the AI
+[33ma57b52c[m Created the promt.md and added the prompt
+[33mf48b922[m made the cart screen. Update the  code as It was missing from the worksheet 5
+[33m7673724[m made a new file cart_screen.dart
+[33m65440e9[m[33m ([m[1;31morigin/worksheet-5[m[33m, [m[1;32mworksheet-5[m[33m)[m Add cart summary and UI confirmation message
+[33m3981854[m show the message when something is added in the UI
+[33m9766431[m change the complete _OrderScreenState as we no longer needed it with our new approch
+[33mdd6ff89[m Removed the enum BreadType as Its now in the sandwich.dart file
+[33m4525f9d[m Have all these 4 imports according to worksheet.
+[33maf1f4c1[m Add unit tests for Sandwich model getters and image paths
+[33mdb3453a[m have added the cart before moving on
+[33m8082a7b[m use our existing Price Repositoy
+[33m7afaf15[m Implement Cart model to manage Sandwich items
+[33mf4b55dc[m Add Sandwich model unit tests and explain use of getters
+[33mc2544cc[m[33m ([m[1;32mworksheet-4[m[33m)[m Did the commit for task 4
+[33ma49b226[m updated the test to use the new key in the widget_test.dart
+[33me2ab40a[m Give both the switches a unique key.
+[33m11e0b46[m added new row for is_toasted
+[33m84b6d88[m "Added widget tests and updated test folder structure."
+[33m66d98df[m[33m ([m[1;31morigin/worksheet-4[m[33m)[m Did the test by pressing the run button in the oreder_repository_test.dart
+[33m7819fe8[m Added the related file and code in the test folder.
+[33m9479365[m replace the entire _OrderScreenState class in your main.dart
+[33maafdae1[m Restructure folder into views, view_models, and repositories, Add app_styles.dart for managing styles, Update main.dart to use app_styles.dart
+[33mcc51a6f[m[33m ([m[1;31morigin/Worksheet3[m[33m, [m[1;32mWorksheet3[m[33m)[m  switch between sandwich types
+[33mb415b4d[m disabled buttons at the quantity limits
+[33m6352728[m Added text bar for the order Notes
+[33mb4b9808[m Implement counter functionality with setState
+[33mad40730[m Add helper methods for quantity adjustment
+[33mfbdb422[m Use OrderScreen in App
+[33mb39a2f2[m Build UI for OrderScreen
+[33md0aa6a7[m Define OrderScreen stateful widget
+[33m17d8bdd[m Added add and remove button.
+[33ma20af26[m Change the code to the same a worksheet 2.
+[33m5ec496f[m[33m ([m[1;31morigin/Worksheet2-final[m[33m, [m[1;32mmain[m[33m, [m[1;32mWorksheet2-final[m[33m)[m Task 5 Added a Scroll view to scrolll the list of order item display.
+[33m104d118[m Task 5 added 20 orderitem display and  changed to column.
+[33m3cc8a53[m Commit for task 4. Used the style property To change the fontsize, fontweight and color of the text.
+[33md29d59a[m Commit For Exc 3 Ws 2. Arrange all in a row at the top using child: Row
+[33md590f44[m Commit Exercise 2
+[33mcb7ddc5[m Use OrderItemDisplay in App
+[33mefe2660[m Implement dynamic text in OrderItemDisplay
+[33m6cfae4b[m Define OrderItemDisplay custom widget
+[33m43cf973[m Define the UI inside App
+[33m7c8f7ce[m Define the Main App Widget: App
+[33mcbd2e84[m Set Up the Project
+[33m47ecf81[m Define the Main App Widget: App
+[33m9bc403d[m comment out MyApp initialization
+[33m16150ab[m simplify pubspecyamo
+[33m7617f4e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m remove the counter and the text
+[33m2fc35e6[m Change intro text
+[33m9120a6f[m first commit
