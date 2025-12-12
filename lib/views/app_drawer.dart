@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sandwich_shop/main.dart';
+import 'package:sandwich_shop/views/cart_screen.dart';
+import 'package:sandwich_shop/models/cart.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -39,7 +41,14 @@ onTap: () {
 ListTile(
   leading: Icon(Icons.shopping_cart),
   title: const Text('Cart'),
-  onTap: () {},
+onTap: () {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => CartScreen(cart: Cart()),
+    ),
+  );
+},
 ),
 ListTile(
   leading: Icon(Icons.person),
