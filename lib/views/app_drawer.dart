@@ -53,7 +53,14 @@ onTap: () {
 ListTile(
   leading: Icon(Icons.person),
   title: const Text('Profile'),
-  onTap: () {},
+onTap: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const ProfileScreen(),
+    ),
+  );
+},
 ),
 
 
