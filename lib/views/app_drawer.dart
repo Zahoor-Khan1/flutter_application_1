@@ -30,6 +30,12 @@ Widget build(BuildContext context) {
   title: const Text('Order'),
   onTap: () {},
 ),
+ListTile(
+  leading: Icon(Icons.shopping_cart),
+  title: const Text('Cart'),
+  onTap: () {},
+),
+
 
       ],
     ),
