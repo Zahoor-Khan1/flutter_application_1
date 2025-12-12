@@ -5,6 +5,7 @@ import 'package:sandwich_shop/models/cart.dart';
 import 'package:sandwich_shop/views/cart_screen.dart';
 import 'package:sandwich_shop/views/profile_screen.dart';
 import 'package:sandwich_shop/views/app_drawer.dart';
+import 'package:sandwich_shop/views/common_widgets.dart';
 
 void main() {
   runApp(const App());
@@ -169,20 +170,13 @@ class _OrderScreenState extends State<OrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.contain,
-          ),
-        ),
-        title: const Text(
-          'Sandwich Counter',
-          style: heading1,
-        ),
-      ),
+    return Scaffold(appBar: buildCommonAppBar(
+  title: 'Sandwich Counter',
+  showLogo: true,
+),
+
+      
+
       drawer: const AppDrawer(),
       body: Center(
         child: SingleChildScrollView(
