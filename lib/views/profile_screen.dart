@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sandwich_shop/views/app_styles.dart';
 import 'package:sandwich_shop/views/app_drawer.dart';
 import 'package:sandwich_shop/views/common_widgets.dart';
 
