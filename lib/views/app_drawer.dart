@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sandwich_shop/main.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -28,7 +29,12 @@ Widget build(BuildContext context) {
         ListTile(
   leading: const Icon(Icons.fastfood),
   title: const Text('Order'),
-  onTap: () {},
+onTap: () {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const OrderScreen()),
+  );
+},
 ),
 ListTile(
   leading: Icon(Icons.shopping_cart),
