@@ -35,6 +35,12 @@ ListTile(
   title: const Text('Cart'),
   onTap: () {},
 ),
+ListTile(
+  leading: Icon(Icons.person),
+  title: const Text('Profile'),
+  onTap: () {},
+),
+
 
 
       ],
