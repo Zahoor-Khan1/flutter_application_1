@@ -13,8 +13,8 @@ Widget build(BuildContext context) {
   return Drawer(
     
     child: ListView(
-      children: const [
-        DrawerHeader(
+      children: [
+        const DrawerHeader(
           decoration: BoxDecoration(color: Colors.green),
           child: Text(
             'Sandwich Shop',
@@ -25,6 +25,12 @@ Widget build(BuildContext context) {
             ),
           ),
         ),
+        ListTile(
+  leading: const Icon(Icons.fastfood),
+  title: const Text('Order'),
+  onTap: () {},
+),
+
       ],
     ),
   );
