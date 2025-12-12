@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:sandwich_shop/main.dart';
 import 'package:sandwich_shop/views/cart_screen.dart';
 import 'package:sandwich_shop/models/cart.dart';
+import 'package:sandwich_shop/views/profile_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Drawer();
-  }
-}
 @override
 Widget build(BuildContext context) {
   return Drawer(
@@ -69,4 +65,5 @@ onTap: () {
     ),
   );
   
+}
 }
