@@ -3,6 +3,7 @@ import 'package:sandwich_shop/models/cart.dart';
 import 'package:sandwich_shop/views/app_styles.dart';
 import 'package:sandwich_shop/views/checkout_screen.dart';
 import 'package:sandwich_shop/views/app_drawer.dart';
+import 'package:sandwich_shop/views/common_widgets.dart';
 
 class CartScreen extends StatefulWidget {
   final Cart cart;
@@ -56,9 +57,8 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Cart View", style: heading1),
-      ),
+appBar: buildCommonAppBar(title: 'Cart View'),
+
       drawer: const AppDrawer(),
 
       body: Padding(
